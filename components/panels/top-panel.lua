@@ -77,7 +77,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
   s.systray = wibox.widget.systray()
   s.systray.visible = false
   s.systray:set_horizontal(true)
-  s.systray:set_base_size(28)
+  s.systray:set_base_size(63)
   s.systray.opacity = 0.3
   beautiful.systray_icon_spacing = 16
 end)
