@@ -21,6 +21,7 @@ local icons = require('icons')
 local TaskList = require('widgets.task-list')
 local mat_icon_button = require('widgets.icon-button')
 local mat_icon = require('widgets.icon')
+local batteryarc_widget = require("widgets.awesome-wm-widgets.batteryarc-widget.batteryarc")
 
 
 -- ===================================================================
@@ -75,11 +76,11 @@ month_calendar:attach(clock_widget, "tc" , { on_pressed = true, on_hover = false
 -- Create to each screen
 screen.connect_signal("request::desktop_decoration", function(s)
   s.systray = wibox.widget.systray()
-  s.systray.visible = false
+  s.systray.visible = true
   s.systray:set_horizontal(true)
-  s.systray:set_base_size(63)
+  -- s.systray:set_base_size(63)
   s.systray.opacity = 0.3
-  beautiful.systray_icon_spacing = 16
+  -- beautiful.systray_icon_spacing = 16
 end)
 
 -- Execute only if system tray widget is not loaded
@@ -147,10 +148,15 @@ local TopPanel = function(s)
     {
       layout = wibox.layout.fixed.horizontal,
       s.systray,
-      require('widgets.systemtray'),
-      require('widgets.bluetooth'),
-      require('widgets.wifi'),
-      require('widgets.battery'),
+      -- require('widgets.systemtray'),
+      -- require('widgets.bluetooth'),
+      -- require('widgets.wifi'),
+      -- require('widgets.battery'),
+      batteryarc_widget({
+        warning_msg_position = 'top_right',
+        thickness = 3,
+        main_color = '#00ff00',
+      }),
       require("widgets.layout-box")
     }
   }

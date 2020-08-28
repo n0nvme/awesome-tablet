@@ -255,6 +255,14 @@ keys.globalkeys = gears.table.join(
         {description = "reload awesome", group = "awesome"}
     ),
 
+    -- Lock
+    awful.key({ modkey }, "l", 
+        function()
+            awful.spawn.with_shell("i3lock")
+        end,
+        {description = "show lockscreen", group = "awesome"}
+    ),
+
     -- Quit Awesome
     awful.key({ modkey }, "Escape",
         function()

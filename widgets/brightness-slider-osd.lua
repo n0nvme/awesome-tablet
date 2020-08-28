@@ -11,7 +11,8 @@ local awful = require('awful')
 local slider_osd =
   wibox.widget {
   read_only = false,
-  widget = mat_slider
+  widget = mat_slider,
+  value = 90
 }
 
 slider_osd:connect_signal(

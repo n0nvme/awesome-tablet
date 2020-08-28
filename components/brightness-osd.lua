@@ -25,7 +25,7 @@ local bri_osd = require('widgets.brightness-slider-osd')
 
 screen.connect_signal("request::desktop_decoration", function(s)
   -- Create the box
-  local offsetx = dpi(56)
+  local offsetx = dpi(1900)
   local offsety = dpi(300)
   brightnessOverlay = wibox
   {
@@ -62,6 +62,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
   }
 
   function toggleBriOSD(bool)
+    -- bri_osd:UpdateBriOSD()
     brightnessOverlay.visible = bool
     if bool then
       hideOSD:again()

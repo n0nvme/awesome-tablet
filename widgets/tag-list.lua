@@ -4,6 +4,7 @@ local dpi = require('beautiful').xresources.apply_dpi
 local capi = {button = _G.button}
 local clickable_container = require('widgets.clickable-container')
 local modkey = require('keys').modkey
+local debug = require('gears.debug')
 
 local function create_buttons(buttons, object)
   if buttons then
@@ -74,7 +75,9 @@ local function list_update(w, buttons, label, data, objects)
       }
     end
 
-    local text, bg, bg_image, icon, args = label(o, tb)
+    local text, bg, bg_image, icon, args = label(o)
+    debug.dump(text)
+    -- debug.print_error('lel')
     args = args or {}
 
     bgb:set_bg(bg)
@@ -88,6 +91,13 @@ local function list_update(w, buttons, label, data, objects)
       ib.image = icon
     else
       ibm:set_margins(0)
+    end
+
+    -- tb.text = 'fldsjkfklsdjflkdsj'
+    
+    if text then
+      -- tb.text = text
+      ib.image = icon
     end
 
     bgb.shape = args.shape
